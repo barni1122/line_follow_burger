@@ -3,9 +3,9 @@
 <robot name="mogi_bot" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
   <!-- Gazebo plugin -->
-  <xacro:include filename="$(find bme_gazebo_sensors)/urdf/mogi_bot.gazebo" />
+  <xacro:include filename="$(find line_follower_burger)/urdf/mogi_bot.gazebo" />
   <!-- RViz colors -->
-  <xacro:include filename="$(find bme_gazebo_sensors)/urdf/materials.xacro" />
+  <xacro:include filename="$(find line_follower_burger)/urdf/materials.xacro" />
 
   <link name="base_footprint"></link>
 
@@ -32,7 +32,7 @@
     <collision name='collision'>
       <origin xyz="0 0 0" rpy="0 0 0"/> 
       <geometry>
-        <box size=".4 .2 .1"/>
+        <cylinder radius="0.2" length="0.02"/>
       </geometry>
     </collision>
 
@@ -40,36 +40,36 @@
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
         <!--box size=".4 .2 .1"/-->
-        <mesh filename = "package://bme_gazebo_sensors/meshes/mogi_bot.dae"/>
+        <mesh filename = "package://line_follower_burger/meshes/mogi_porszi.dae" scale="0.001 0.001 0.001"/>
       </geometry>
-      <material name="orange"/>
+      <material name="grey"/>
     </visual>
 
     <collision name='rear_caster_collision'>
-      <origin xyz="-0.15 0 -0.05" rpy="0 0 0"/>
+      <origin xyz="-0.15 0 -0.015" rpy="0 0 0"/>
       <geometry>
-        <sphere radius="0.0499"/>
+        <sphere radius="0.03"/>
       </geometry>
     </collision>
 
     <visual name='rear_caster_visual'>
-      <origin xyz="-0.15 0 -0.05" rpy="0 0 0"/>
+      <origin xyz="-0.15 0 -0.015" rpy="0 0 0"/>
       <geometry>
-        <sphere radius="0.05"/>
+        <sphere radius="0.03"/>
       </geometry>
     </visual>
 
     <collision name='front_caster_collision'>
-      <origin xyz="0.15 0 -0.05" rpy="0 0 0"/>
+      <origin xyz="0.15 0 -0.015" rpy="0 0 0"/>
       <geometry>
-        <sphere radius="0.0499"/>
+        <sphere radius="0.03"/>
       </geometry>
     </collision>
 
     <visual name='front_caster_visual'>
-      <origin xyz="0.15 0 -0.05" rpy="0 0 0"/>
+      <origin xyz="0.15 0 -0.015" rpy="0 0 0"/>
       <geometry>
-        <sphere radius="0.05"/>
+        <sphere radius="0.03"/>
       </geometry>
     </visual>
 
@@ -99,7 +99,7 @@
     <collision name='collision'>
       <origin xyz="0 0 0" rpy="0 1.5707 1.5707"/> 
       <geometry>
-        <cylinder radius=".1" length=".05"/>
+        <cylinder radius=".04" length=".05"/>
       </geometry>
     </collision>
 
@@ -107,7 +107,7 @@
       <origin xyz="0 0 0" rpy="0 1.5707 1.5707"/>
       <geometry>
         <!--cylinder radius=".1" length=".05"/-->
-        <mesh filename = "package://bme_gazebo_sensors/meshes/wheel.dae"/>
+        <mesh filename = "package://line_follower_burger/meshes/wheel.dae" scale="0.4 0.4 0.4"/>
       </geometry>
       <material name="green"/>
     </visual>
@@ -136,7 +136,7 @@
     <collision name='collision'>
       <origin xyz="0 0 0" rpy="0 1.5707 1.5707"/> 
       <geometry>
-        <cylinder radius=".1" length=".05"/>
+        <cylinder radius=".04" length=".05"/>
       </geometry>
     </collision>
 
@@ -144,14 +144,14 @@
       <origin xyz="0 0 0" rpy="0 1.5707 1.5707"/>
       <geometry>
         <!--cylinder radius=".1" length=".05"/-->
-        <mesh filename = "package://bme_gazebo_sensors/meshes/wheel.dae"/>
+        <mesh filename = "package://line_follower_burger/meshes/wheel.dae" scale="0.4 0.4 0.4"/>
       </geometry>
       <material name="green"/>
     </visual>
   </link>
     <!-- Camera -->
   <joint type="fixed" name="camera_joint">
-    <origin xyz="0.225 0 0.075" rpy="0 0.79 0"/>
+    <origin xyz="0.2 0 0.06" rpy="0 0.79 0"/>
     <child link="camera_link"/>
     <parent link="base_link"/>
     <axis xyz="0 1 0" />
