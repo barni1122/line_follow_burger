@@ -220,7 +220,7 @@ bridge = CvBridge()
 
 rospy.init_node('line_follower')
 # Define your image topic
-image_topic = "/head_camera/image_raw/compressed"
+image_topic = "/camera/image/compressed"
 # Set up your subscriber and define its callback
 rospy.Subscriber(image_topic, CompressedImage, queueMonocular)
 
