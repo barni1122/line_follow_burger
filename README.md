@@ -1,5 +1,5 @@
 
-# Line Followig MOGI PORSZI&copy;
+# Line Following MOGI PORSZI&copy;
 This is our assignment for the Robot Systems Laboratory Class 2022/2023 II.
 # About the project
 With the help of numerous well-known ros packages a line following robot was made. The robot is called MOGI PORSZI&copy; and uses a camera node from hector_slam packages to see the environment. Furthermore the camera image is used for the algorithm to find and follow the line that is in the surface of our world. The image is processed with the help of openCV. The world was made in gazebo and features a complex route through an artificial house with some obstacles. The MOGI PORSZI&copy;'s great feature is that it can make its way through the obstacles with any real-time factor given in gazebo. This means, that it can work time independent.
